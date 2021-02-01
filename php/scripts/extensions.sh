@@ -192,7 +192,7 @@ elif [[ $PHP_VERSION == "7.4" || $PHP_VERSION == "7.3" ]]; then
     && docker-php-source delete
 
   pecl channel-update pecl.php.net \
-    && pecl install amqp redis apcu mongodb imagick xdebug \
+    && pecl install amqp redis apcu mongodb imagick xdebug-2.9.8 \
     && docker-php-ext-enable amqp redis apcu mongodb imagick xdebug
 
 elif [[ $PHP_VERSION == "7.2" ]]; then
@@ -202,13 +202,13 @@ elif [[ $PHP_VERSION == "7.2" ]]; then
     && docker-php-source delete
 
   pecl channel-update pecl.php.net \
-    && pecl install amqp redis apcu mongodb imagick xdebug \
+    && pecl install amqp redis apcu mongodb imagick xdebug-2.9.8 \
     && docker-php-ext-enable amqp redis apcu mongodb imagick xdebug
 
 else
   apt-get update && docker-php-ext-install -j$(nproc) mcrypt
   pecl channel-update pecl.php.net \
-    && pecl install amqp redis mongodb xdebug apcu memcached imagick \
+    && pecl install amqp redis mongodb xdebug-2.9.8 apcu memcached imagick \
     && docker-php-ext-enable amqp redis mongodb xdebug apcu memcached imagick
 fi
 
